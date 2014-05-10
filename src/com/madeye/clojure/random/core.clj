@@ -6,7 +6,7 @@
   (use :reload-all 'random.core)
 )
 
-(defn parse-names
+(defn- parse-names
   [input-filename]
   (let [name-map (into {} (map #(-> % str/trim (str/split #" ")) (str/split (slurp input-filename) #"\n")))
   	    first-names (sort (keys name-map))
@@ -15,7 +15,7 @@
   )
 )
 
-(defn- initialise
+(defn initialise
   [names-file words-file domain-file]
   (def names (parse-names names-file))
   (def words (map str/trim (str/split (slurp words-file) #"\n")))
@@ -42,8 +42,8 @@
 	)
 )
 
-(defn- random-word [] (pick-random-from-list words))
-(defn- random-domain-extension [] (pick-random-from-list domains))
-(defn- random-domain [] (str (random-word) (random-domain-extension)))
-(defn- random-email [] (str (random-full-name ".") "@" (random-domain)))
+(defn random-word [] (pick-random-from-list words))
+(defn random-domain-extension [] (pick-random-from-list domains))
+(defn random-domain [] (str (random-word) (random-domain-extension)))
+(defn random-email [] (str (random-full-name ".") "@" (random-domain)))
 
