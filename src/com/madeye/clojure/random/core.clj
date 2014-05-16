@@ -47,3 +47,7 @@
 (defn random-domain [] (str (random-word) (random-domain-extension)))
 (defn random-email [] (str (random-full-name ".") "@" (random-domain)))
 
+(defn random-words
+  [num-words]
+  (reduce #(str %1 " " %2) (repeatedly num-words random-word))
+)
