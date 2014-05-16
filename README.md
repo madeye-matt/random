@@ -6,14 +6,14 @@ A simple Clojure library with some data for generating random names, domain name
 
 leiningen
 
-    [com.madeye.clojure.random/core "0.1.2"]
+    [com.madeye.clojure.random/core "0.1.3"]
 
 maven
 
     <dependency>
       <groupId>com.madeye.clojure.random</groupId>
       <artifactId>ampachedb</artifactId>
-      <version>0.1.2</version>
+      <version>0.1.3</version>
     </dependency>
 
 
