@@ -1,4 +1,4 @@
-(defproject com.madeye.clojure.random/core "0.1.4"
+(defproject com.madeye.clojure.random/core "0.1.5"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
