@@ -18,7 +18,7 @@
 (defn initialise
   [names-file words-file domain-file]
   ; Make these vectors for more efficient retrieval
-  (def names (vec (parse-names names-file)))
+  (def names (parse-names names-file))
   (def words (vec (map str/trim (str/split (slurp words-file) #"\n"))))
   (def domains (vec (map str/trim (str/split (slurp domain-file) #"\n"))))
 )
@@ -31,7 +31,7 @@
 
 (defn- random-name 
 	[list-kw]
-	(let [name-list (list-kw names)]
+	(let [name-list (vec (list-kw names))]
 		(pick-random-from-list name-list)
 	)
 )
