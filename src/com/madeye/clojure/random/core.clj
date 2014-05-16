@@ -3,7 +3,7 @@
   (:require [clojure.string :as str]))
       
 (defn- reload []
-  (use :reload-all 'random.core)
+  (use :reload-all 'com.madeye.clojure.random.core)
 )
 
 (defn- parse-names
@@ -17,14 +17,16 @@
 
 (defn initialise
   [names-file words-file domain-file]
-  (def names (parse-names names-file))
-  (def words (map str/trim (str/split (slurp words-file) #"\n")))
-  (def domains (map str/trim (str/split (slurp domain-file) #"\n")))
+  ; Make these vectors for more efficient retrieval
+  (def names (vec (parse-names names-file)))
+  (def words (vec (map str/trim (str/split (slurp words-file) #"\n"))))
+  (def domains (vec (map str/trim (str/split (slurp domain-file) #"\n"))))
 )
 
 (defn- pick-random-from-list
 	[list]
-	(nth list (rand-int (count list)))
+	; (nth list (rand-int (count list)))
+  (get list (rand-int (count list)))
 )
 
 (defn- random-name 
