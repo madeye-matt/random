@@ -15,6 +15,10 @@
   )
 )
 
+(def names nil)
+(def words nil)
+(def domains nil)
+
 (defn initialise
   [names-file words-file domain-file]
   ; Make these vectors for more efficient retrieval
@@ -26,7 +30,10 @@
 (defn- pick-random-from-list
 	[list]
 	; (nth list (rand-int (count list)))
-  (get list (rand-int (count list)))
+  (if (empty? list)
+    nil
+    (get list (rand-int (count list)))
+  )
 )
 
 (defn- random-name 
